@@ -1,0 +1,16 @@
+{
+  "name": "toggle-switch-rn",
+  "version": "0.1.2",
+  "description": "switch for react-native",
+  "main": "ToggleSwitch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jtr354",
+    "switch",
+    "react-native"
+  ],
+  "author": "jtr354,aminebenkeroum",
+  "license": "MIT"
+}
