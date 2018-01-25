@@ -1,94 +1,67 @@
-Toggle Switch Component for react native, it works on iOS and Android.
+# Switch Component for react native, it works on iOS and Android.
 
-## Content
-
-- [Installation](#installation)
-- [Demo](#demo)
-- [Getting started](#getting-started)
-- [API](#api)
-- [Contribution](#contribution)
+## [github地址](https://github.com/JTR354/switch-react-native-jtr354.git)
+* 基于View样式改变实现switch功能
 
 ## Installation
 
-* 1.Run `npm i toggle-switch-rn --save`
-* 2.`import ToggleSwitch from 'toggle-switch-rn'`
+ * `npm i toggle-switch-rn --save`
+ * `import Switch from 'toggle-switch-rn'`
 
 ## Demo
-* [Example](https://github.com/aminebenkeroum/toggle-switch-react-native/tree/master/example)
-* [my-github](https://github.com/JTR354/switch-react-native-jtr354.git)
-![Screenshots](https://raw.githubusercontent.com/aminebenkeroum/toggle-switch-react-native/master/example/Screenshots/Screenshot.gif)
-
-## Getting started  
-
-To Get Started, Import `toggle-switch-rn` to your js file.
-
-`import ToggleSwitch from 'toggle-switch-rn'`
-
-Inside your component's render method, or any other method returning views, use ToggleSwitch:   
 
 ```javascript
 
-const unit = {
-    w:Bone.size.width/100,
-    h:Bone.size.height/100
-}
-const swithSize = {
-    width: unit.w*17,
-    padding: unit.w*4,
-    cercleWidth: unit.w*7.5,
-    cercleHeight: unit.w*7.5,
-    translateX: unit.w*7.8,
-}
-
-< ToggleSwitch
-    isOn={
-        false
-    }
-    onColor='#1678FF'
-    offColor='#A7AAB0'
-    size={
-        this.size
-    }
-    animatedView={
-        {
-            margin: 1,
-            backgroundColor: '#fff'
-        }
-    }
-    touchView={
-        {
-            borderRadius: 100,
-            activeOpacity: 1
-        }
-    }
-    onToggle={
-        (isOn) => console.log('changed to : ', isOn)
-    }
+<Switch
+    isOn={this.state.resetSwitch * 1}
+    animationType={0}
+    change={() => {
+        const resetSwitch = !(this.state.resetSwitch * 1)
+        this.setState({ resetSwitch })
+        this._changReset.call(this, resetSwitch)
+    }}
 />
 ```
 
 ## API
+|属性值|作用|是否装配|备注|
+|:--:|:--:|:--:|:--:|
+|isOn|开关状态|是||
+|change|开关改变后的方法|是||
+|animationType|开关动画效果|否|默认0：spring
+|boxStyle|容器样式|否||
+|boxIsOnStyle|开启时容器的样式|否||
+|switchStyle|按钮的样式|否||
 
-Props              | Type     | Optional | Default     | Description
------------------ | -------- | -------- | ----------- | -----------
-isOn  | Boolean  | true | 'false'  |   Default state, true for On, false for off
-onColor | String |true |  '#634fc9' | On Color
-offColor  |  String | true | '#ecf0f1' | Off Color
-label | String| true |   | Custom Label Text on the Left of the toggle Button
-labelStyle | Object | true | {marginHorizontal: 10}  | Custom Styling for the Label Text View
-size | Object | true |  {} | {}
-onToggle | Function Callback | false |  none | Callback when the toggle switch component changes the state, params: isOn
-animatedView| 定义滑动块样式|
-touchView| 定义switch容器样式
-## Contribution
+- 属性默认值：
+```js
+//动画效果类型
+const animationType = [
+    LayoutAnimation.spring,
+    LayoutAnimation.linear,
+    LayoutAnimation.easeInEaseOut
+]
 
-If you encountered an Issue, please add a screenshot of the bug or a code snippet. 
+//默认样式
+boxStyle:{
+    width: 55,
+    height: 30,
+    borderRadius: 30,
+    backgroundColor: '#D9D9D9'
+},
+boxIsOnStyle:{
+    backgroundColor: '#1678FF'
+},
+switchStyle:{
+    width: 30,
+    height: 30,
+    backgroundColor: '#fff',
+    borderRadius: 30,
+    borderColor: 'rgba(0,0,0,.1)',
+    borderWidth: .5
+},
+animationType:0
 
-Quickest way to solve issue is to reproduce it on the example project
-
-Pull requests are welcome. If you want to change the API or imporove something, feel free to create an issue and discuss it first.
-
-由于不能修改样式所以修改了一下
----------------
+```
 
 **MIT Licensed**

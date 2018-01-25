@@ -1,8 +1,8 @@
 {
   "name": "toggle-switch-rn",
-  "version": "0.1.2",
+  "version": "1.2.6",
   "description": "switch for react-native",
-  "main": "ToggleSwitch.js",
+  "main": "StyleSwitch.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +11,10 @@
     "switch",
     "react-native"
   ],
-  "author": "jtr354,aminebenkeroum",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JTR354/switch-react-native-jtr354.git"
+  },
+  "author": "jtr354",
   "license": "MIT"
 }
