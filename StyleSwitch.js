@@ -46,12 +46,15 @@ export default class Switch extends Component {
     }
 
     componentWillUpdate(){
-        animationType[this.props.animationType]()
+
     }
 
     render() {
         return (
-            <TouchableWithoutFeedback onPress={this.props.change}>
+            <TouchableWithoutFeedback onPress={()=>{
+                animationType[this.props.animationType]()
+                this.props.change()
+            }}>
                 <View style={[
                     this.props.boxStyle,
                     !!this.props.isOn  ?
